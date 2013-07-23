@@ -1,0 +1,8 @@
+sequence(
+	command(rm -f texte/2012.txt),
+	set(
+		"texte/text<nummer>-2012.txt",
+		command(cat texte/text<nummer>-2012.txt >> texte/2012.txt)
+	),
+	command(open texte/2012.txt)
+)

@@ -1,0 +1,14 @@
+sequence(
+	command(rm -f bilder/online/*),
+	set(
+		"bilder/<name>.jpg",
+		sequence(
+			command(cp bilder/<name>.jpg bilder/online/<name>-klein.jpg),
+			command(cp bilder/<name>.jpg bilder/online/<name>-gross.jpg)
+		)
+	),
+	set(
+		"bilder/online/<name>-<kleingross>.jpg",
+		command(echo "<a href=\"bilder/online/<name>-gross.jpg\"><img src=\"bilder/online/<name>-klein.jpg\"/></a>" >> bilder/online/index.htm)
+	)
+)

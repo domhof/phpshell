@@ -1,0 +1,11 @@
+sequence(
+	command(rm -f protokoll),
+	command(touch protokoll),
+	set(
+		"eingang/<name>.txt",
+		sequence(
+			command(cp eingang/<name>.txt ausgang),
+			command(echo "moved <name>.txt" >> protokoll)
+		)
+	)
+)
